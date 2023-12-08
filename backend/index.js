@@ -33,6 +33,10 @@ app.use("/v1/department", departmentRouter);
 app.use("/v1/project", projectRouter);
 app.use("/v1/task", taskRouter);
 
+app.get("/v1/", (req, res) => {
+  res.send("Hello world");
+});
+
 app.listen(8000, () => {
   console.log("Server is running");
 });
