@@ -1,0 +1,56 @@
+
+// Colors
+.wrapper{
+    .login {
+      overflow: hidden;
+      background-color: white;
+      padding: 40px 30px 30px 30px;
+      border-radius: 10px;
+      width: 400px;
+      position: absolute;
+      top: calc(100% - 69%);
+      left: calc(100% - 61%);
+      .login__heading{
+        text-align: center;
+        font-size: 1.8rem;
+      }
+      .login__username,
+      .login__password {
+        display: block;
+        border-radius: 5px;
+        font-size: 16px;
+        background: white;
+        width: 100%;
+        border-bottom-color: var(--color-btn) !important;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        padding: 10px 10px;
+        margin: 15px -10px;
+        &:focus{
+          border: 1px solid black;
+        }
+      }
+      
+      .login__btn {
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        width:100%;       
+        border:0 ;
+        padding: 10px 0;
+        margin-top: 10px;
+        margin-left: -5px;
+        border-radius: 5px;
+        background-color: var(--color-btn);
+        
+        &:hover {
+          background-color: var(--color-btn);
+          opacity: .9;
+        }
+      }
+      }
+}
+
+

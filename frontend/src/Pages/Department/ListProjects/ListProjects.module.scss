@@ -1,0 +1,80 @@
+.wrapper{
+    margin: 15px 5px;
+    height: 75vh;
+    .listProjects__inner{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        .listProjects__status{
+            max-width: 100%;
+            width: 285px;
+            text-align: center;
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            .listProjects__status--heading{
+                font-size: 1.1rem;
+                font-weight: 200;
+                height: 50px;
+                background-color: var(--background-color);
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                border-radius: 5px;
+            }
+            .status__heading--icon{
+                color: white;
+                background: #E54646;
+                width: 35px;
+                height: 32px;
+                padding: 5px;
+                border-radius: 5px;
+            }
+            .status__heading--title{
+                flex: 2;
+                color: #E33539;
+                font-weight: 800;
+            }
+            .status__heading--Quantity{
+                flex: 0.5;
+                color: white;
+                font-size: 1rem;
+                background: #C50023;
+                border-radius: 5px;
+            }
+        }
+    }
+    .department__crud{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 10px;
+        display: inline-block;
+        width: 50px;
+        height: 45px;
+        z-index: 10000;
+        color: white;
+        background-color: #3c65b0;
+        cursor: pointer;
+        .department__crud--icon{
+            width: 35px;
+            height: 100%;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+        &:hover{
+            opacity: .7;
+        }
+
+    }
+    .department__mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient( transparent, white);
+    }
+}

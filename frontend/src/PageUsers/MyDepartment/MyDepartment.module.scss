@@ -1,0 +1,27 @@
+.wrapper{
+    position: relative;
+    height: 100%;
+    .header{
+        height: 100px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: var(--background-color);
+        text-align: center;
+        .department__heading{
+            margin-top: 15px;
+            text-align: center;
+            display: inline-block;
+            line-height: 2;
+            h1{
+                font-size: 2rem;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .department__lists{
+       height: 83vh;
+       margin: 0 5px;
+       margin-top: 6px;
+       border-radius: 5px;
+    }
+}

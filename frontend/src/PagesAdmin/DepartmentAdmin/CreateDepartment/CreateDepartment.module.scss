@@ -1,0 +1,112 @@
+.wrapper{
+    width: 65%;
+    margin: auto;
+    .Create__department--inner{
+        padding: 10px;
+        height: 430px;
+        .Create__department--heading{
+            width: 100%;
+            border-bottom: 2px solid var(--color-btn);
+            margin-top: 20px;
+            h1{
+                font-size: 1.5rem;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .department__heading--icon{
+                display: inline-block;
+                vertical-align: middle;
+                float: right;
+                cursor: pointer;
+            }
+        }
+        .Create__department--from{
+            padding:20px 0 20px 20px;
+            .department__from--item{
+                margin-bottom: 15px;
+                height: 35px;
+                display: flex;
+                .from__item--title{
+                    font-size: 1rem;
+                    margin-right: 25px;
+                    flex: 0.2;
+                }
+                .from__item--input{
+                    flex: 1;
+                    font-size: 1rem;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    border-radius: 5px;
+                    option[disabled]{
+                        display: none;
+                      }
+                }
+                p{
+                    font-size: 1rem;
+                    position: absolute;
+                    right: 15px
+                }
+
+            }
+            .department__from--item2{
+                .from__item--title{
+                    font-size: 1rem;
+                    margin-right: 25px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .from__item--lists{
+                    width: 81%;
+                    height: 150px;
+                    font-size: 1rem;
+                    text-wrap: wrap;
+                    float: right;
+                    padding: 10px;
+                    margin-top: 18px;
+                    border-radius: 5px;
+                    vertical-align: middle;
+                    overflow: auto;
+                    background-color: var(--background-color);
+                    .from__item--radioButton{
+                        display: inline-block;
+                        padding: 0 10px;
+                        .item__radioButton--input{
+                            width: 30px;
+                            height: 20px;
+                            display: inline-block;
+                            vertical-align: middle;
+                             color: red;
+                        }
+                        span{
+                            vertical-align: middle;
+                            font-size: 1.1rem;
+                            padding-left: 5px;
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .Create__department--btn{
+            width: 100%;
+            display: inline-block;
+            .department__btn--create,
+            .department__btn--cancel{
+                margin: 20px 10px 0px 10px;
+                padding: 8px 15px;
+                font-size: 1rem;
+                float: right;
+                border-radius: 5px;
+                background-color: var(--color-btn);
+                color: white;
+                border: none;
+                cursor: pointer;
+                &:hover{
+                    opacity: .7;
+                }
+            }
+
+        }
+    }
+
+}

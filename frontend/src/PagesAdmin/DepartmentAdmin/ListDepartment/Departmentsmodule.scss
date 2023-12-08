@@ -1,0 +1,110 @@
+.wrapper{
+    margin: 5px;
+    border-radius: 10px;
+    .listdepartment__heading{
+        border-radius: 5px;
+        background-color: var(--background-color);
+        height: 100px;
+        text-align: center;
+        line-height: 3;
+        h1{
+            font-size: 2rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .listdepartment__lists{
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+        .listdepartment__lists--item{
+            display: inline-block;
+            height: 200px;
+            padding: 10px;
+            margin: 5px 2px;
+            border-radius: 10px;
+            flex: 0 0 33%;
+            background-color: var(--background-color);
+            .lists__item--title{
+                font-size: 1.5rem;
+                text-align: center;
+                border-bottom: 2px solid;
+            }
+            .lists__item--infor  {
+                margin-top: 10px;
+                text-align: center;
+                .item__infor--manage{
+                    text-align: center;
+                    margin-bottom: 20px;
+                    p{
+                        font-size: 1rem;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    p:last-child{
+                        font-size: 1rem;
+                        margin-left: 5px;
+                    }
+                }
+                .item__infor--countProject{
+                    display: inline-block;
+                    font-size: 1rem;
+                    padding: 10px;
+                    border-radius: 5px;
+                    color: white;
+                    background-color: var(--color-btn);
+                }
+                .item__infor--countStaff{
+                    display: inline-block;
+                    font-size: 1rem;
+                    padding: 10px;
+                    border-radius: 5px;
+                    margin-left: 10px;
+                    color: white;
+                    background-color: var(--color-btn);
+                }
+            }
+            .edit__department{
+                padding: 0px 10px;
+                float: right;
+                cursor: pointer;
+                .department__icon{
+                    width: 24px;
+                    height: 20px;
+                }
+                &:active .department__icon{
+                    opacity: .5;
+                }
+            }
+            &:hover{
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+        }
+
+    }
+    .department__crud{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 10px;
+        display: inline-block;
+        width: 50px;
+        height: 45px;
+        z-index: 10000;
+        color: white;
+        background-color: #3c65b0;
+        cursor: pointer;
+        .department__crud--icon{
+            width: 35px;
+            height: 100%;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+        &:hover{
+            opacity: .7;
+        }
+
+    }
+}

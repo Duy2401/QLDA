@@ -1,0 +1,38 @@
+.users__list--inner{
+    margin: 15px 5px 0 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.users__list--item{
+    flex: 0 0 22%;
+    text-align: center;
+    cursor: pointer;
+    .list__item--text{
+        font-size: 1.1rem;
+        font-weight: 400;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .list__item--fullName{
+        font-size: 1.1rem;
+        font-weight: 400;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 4px;
+    }
+    .list__item--btn{
+        font-size: 1rem;
+        font-weight: 400;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: #3c65b0;
+        padding: 0px 5px;
+        border-radius: 5px;
+        color: white;
+    }
+}
+.users__list--item:first-child{
+    flex: 0 0 10%;
+    text-align: center;
+}

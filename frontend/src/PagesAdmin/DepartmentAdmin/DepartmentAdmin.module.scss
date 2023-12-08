@@ -1,0 +1,16 @@
+.wrapper{
+    margin: 5px;
+    border-radius: 10px;
+    .listdepartment__heading{
+        border-radius: 5px;
+        background-color: var(--background-color);
+        height: 100px;
+        text-align: center;
+        line-height: 3;
+        h1{
+            font-size: 2rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}

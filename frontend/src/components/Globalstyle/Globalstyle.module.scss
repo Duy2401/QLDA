@@ -1,0 +1,46 @@
+:root {
+    --color-btn: #f96d00;
+    --black: black;
+    --text-color: rgb(22, 24, 25);
+    --background-color: #e7e4e4;
+    --white: #fff;
+    --font-family: 'Lora', serif;
+    // Default layout
+    --default-layout-width: 1550px;
+    --default-layout-horizontal-spacer: 20px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    text-rendering: optimizespeed;
+    font-weight: 600;
+    overflow-y: overlay;
+    box-shadow: none;
+}
+// Scrollbar Css
+html ::-webkit-scrollbar {
+    border:0;
+    width: 0px;
+}
+html *::-webkit-scrollbar {
+    border:0;
+    width: 0px;
+}
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+input{
+    border: none;
+}
+li{
+    list-style: none;
+}
+
+

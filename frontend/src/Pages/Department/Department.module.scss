@@ -1,0 +1,94 @@
+.wrapper{
+    position: relative;
+    height: 100%;
+    .header{
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: var(--background-color);
+        text-align: center;
+        .department__heading{
+            margin-top: 15px;
+            text-align: center;
+            display: inline-block;
+            h1{
+                font-size: 2rem;
+            }
+        }
+        .department__lists{
+            margin-top: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            .department__lists--members,
+            .department__lists--members,
+            .department__lists--members{
+                cursor: pointer;
+                width: 210px;
+                height: 40px;
+                margin: 0 16px;
+                .lists__members-item {
+                    position: relative;
+                    font-size: 1.2rem;
+                    font-weight: 200;
+                    &:hover.lists__members-item::after{
+                        position: absolute;
+                        content: " ";
+                        bottom: -2px;
+                        left: 0;
+                        right: 0;
+                        height: 3px;
+                        background-color: #808080;
+                        border-radius: 2px;
+                    }
+                    &:active.lists__members-item::after{
+                        position: absolute;
+                        content: " ";
+                        bottom: -2px;
+                        left: 0;
+                        right: 0;
+                        height: 3px;
+                        background-color: var(--color-btn);
+                        border-radius: 2px;
+                    }
+                }
+                &:hover.lists__members-item,
+                &:active.lists__members-item{
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .department__crud{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 10px;
+        display: inline-block;
+        width: 50px;
+        height: 45px;
+        z-index: 10000;
+        color: white;
+        background-color: #3c65b0;
+        cursor: pointer;
+        .department__crud--icon{
+            width: 35px;
+            height: 100%;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+        &:hover{
+            opacity: .7;
+        }
+
+    }
+    .department__mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient( transparent, white);
+    }
+}

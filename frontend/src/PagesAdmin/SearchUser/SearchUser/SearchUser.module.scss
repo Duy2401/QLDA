@@ -1,0 +1,28 @@
+.wrapper{
+    .department__header{
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        .department__header--search{
+            position: relative;
+            padding-top: 10px;
+            display: inline-block;
+            width: 50%;
+            .header__search--icon{
+                position: absolute;
+                top: 18px;
+                left: 51px;
+                width: 20px;
+            }
+            .header__search--input{
+                width: 85%;
+                height: 35px;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 30px;
+                padding-left: 35px;
+                font-size: 1rem;
+            }
+        }
+    }
+}
