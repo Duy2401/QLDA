@@ -33,7 +33,7 @@ app.use("/v1/department", departmentRouter);
 app.use("/v1/project", projectRouter);
 app.use("/v1/task", taskRouter);
 
-app.use("/v1/", (req, res) => {
+app.get("/v1/", (req, res) => {
   res.send("Hello world");
 });
 
