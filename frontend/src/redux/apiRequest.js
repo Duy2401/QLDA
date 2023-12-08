@@ -99,10 +99,7 @@ import {
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post(
-      "https://qlda-api.vercel.app/v1/auth/login",
-      user
-    );
+    const res = await axios.post("qlda-api.vercel.app/v1/auth/login", user);
     dispatch(loginSuccess(res.data));
     navigate("/");
   } catch (err) {
