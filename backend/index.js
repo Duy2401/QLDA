@@ -26,7 +26,7 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: "http://qlda-duy2401.vercel.app",
+    origin: "http://localhost:3000",
   })
 );
 app.use(cookieParser());
