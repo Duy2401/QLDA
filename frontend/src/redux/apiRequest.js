@@ -129,12 +129,13 @@ export const deleteUser = async (accessToken, dispatch, id, axiosJWT) => {
 export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
   dispatch(logOutStart());
   try {
-    await axiosJWT.post(`${baseURL}/v1/auth/logout/${id}`, {
+    await axiosJWT.post(`${baseURL}/v1/auth/logout/`, id, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(logOutSuccess());
     dispatch(getCurrentUserSuccess(null));
     dispatch(getDepartmentSuccess(null));
+    localStorage.clear();
     navigate("/login");
   } catch (err) {
     dispatch(logOutFailed());
