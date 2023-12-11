@@ -81,7 +81,7 @@ const authController = {
           secure: false,
           path: "/",
           sameSite: "none",
-          domain: ".qlda-duy2401.vercel.app",
+          domain: "qlda-duy2401.vercel.app",
         });
         const { password, ...others } = user._doc;
         const returnedUser = {
@@ -114,7 +114,7 @@ const authController = {
           secure: false,
           path: "/",
           sameSite: "strict",
-          domain: ".qlda-duy2401.vercel.app",
+          domain: "qlda-duy2401.vercel.app",
         });
         return res
           .status(200)
