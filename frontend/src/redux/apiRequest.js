@@ -100,7 +100,7 @@ export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
     const res = await axios.post(
-      "https://qlda-api-duy2401.vercel.app/v1/auth/login",
+      "https://qlda-api.onrender.com/v1/auth/login",
       user
     );
     dispatch(loginSuccess(res.data));
