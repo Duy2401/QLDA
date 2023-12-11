@@ -11,7 +11,7 @@ const authController = {
       },
       process.env.SECRET_KEY_ACCESS_TOKEN,
       {
-        expiresIn: "20s",
+        expiresIn: "365d",
       }
     );
   },
