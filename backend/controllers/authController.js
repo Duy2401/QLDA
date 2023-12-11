@@ -108,7 +108,7 @@ const authController = {
         // Create new Access and Refresh Token
         const newAccessToken = authController.createAccessToken(user);
         const newRefreshToken = authController.createRefreshToken(user);
-        res.cookie("refreshToken", refreshToken, {
+        res.cookie("refreshToken", newRefreshToken, {
           httpOnly: true,
           secure: false,
           path: "/",
