@@ -1,4 +1,6 @@
 import axios from "axios";
+import { baseURL } from "../../utils/apiLink";
+
 import {
   loginFailed,
   loginStart,
@@ -93,16 +95,12 @@ import {
   getTaskSuccess,
   getTaskFailed,
 } from "./taskSlice";
-//npm install axios
 
 // AUTH SLICE
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post(
-      "https://qlda-api.onrender.com/v1/auth/login",
-      user
-    );
+    const res = await axios.post(`${baseURL}/v1/auth/login`, user);
     dispatch(loginSuccess(res.data));
     navigate("/");
   } catch (err) {
@@ -112,7 +110,7 @@ export const loginUser = async (user, dispatch, navigate) => {
 export const registerUser = async (user, dispatch, axiosJWT) => {
   dispatch(registerStart());
   try {
-    await axiosJWT.post("/v1/auth/register", user);
+    await axiosJWT.post(`${baseURL}/v1/auth/register`, user);
     dispatch(registerSuccess());
   } catch (err) {
     dispatch(registerFailed());
@@ -121,7 +119,7 @@ export const registerUser = async (user, dispatch, axiosJWT) => {
 export const deleteUser = async (accessToken, dispatch, id, axiosJWT) => {
   dispatch(deleteUserStart());
   try {
-    await axiosJWT.delete("/v1/user/" + id, {
+    await axiosJWT.delete(`${baseURL}/v1/user/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(deleteUsersSuccess());
@@ -132,7 +130,7 @@ export const deleteUser = async (accessToken, dispatch, id, axiosJWT) => {
 export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
   dispatch(logOutStart());
   try {
-    await axiosJWT.post("/v1/auth/logout", id, {
+    await axiosJWT.post(`${baseURL}/v1/auth/logout/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(logOutSuccess());
@@ -148,7 +146,7 @@ export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
 export const getCurrentUser = async (accessToken, id, dispatch, axiosJWT) => {
   dispatch(getCurrentUserStart());
   try {
-    const res = await axiosJWT.get("/v1/user/" + id, {
+    const res = await axiosJWT.get(`${baseURL}/v1/user/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getCurrentUserSuccess(res.data));
@@ -165,7 +163,7 @@ export const updateCurrentUser = async (
 ) => {
   dispatch(updateUserInfoStart());
   try {
-    const res = await axiosJWT.put("/v1/user/edit/" + id, user, {
+    const res = await axiosJWT.put(`${baseURL}/v1/user/edit/${id}`, user, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(updateUserInfoSuccess(res.data));
@@ -176,7 +174,7 @@ export const updateCurrentUser = async (
 export const getAllUser = async (accessToken, dispatch, axiosJWT) => {
   dispatch(getUsersStart());
   try {
-    const res = await axiosJWT.get("/v1/user/all", {
+    const res = await axiosJWT.get(`${baseURL}/v1/user/all`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getUsersSuccess(res.data));
@@ -193,7 +191,7 @@ export const searchUser = async (
 ) => {
   dispatch(searchUsersStart());
   try {
-    const res = await axiosJWT.get("/v1/user/search/" + searchValue, {
+    const res = await axiosJWT.get(`${baseURL}/v1/user/search/${searchValue}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(searchUsersSuccess(res.data));
@@ -212,7 +210,7 @@ export const createDepartment = async (
   axiosJWT
 ) => {
   dispatch(createDepartmentStart());
-  await axiosJWT.post("/v1/department/create", formData, {
+  await axiosJWT.post(`${baseURL}/v1/department/create`, formData, {
     headers: { token: `Bearer ${accessToken}` },
   });
   dispatch(createDepartmentSuccess());
@@ -225,7 +223,7 @@ export const createDepartment = async (
 export const getDepartment = async (accessToken, id, dispatch, axiosJWT) => {
   dispatch(getDepartmentStart());
   try {
-    const res = await axiosJWT.get("/v1/department/" + id, {
+    const res = await axiosJWT.get(`${baseURL}/v1/department/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getDepartmentSuccess(res.data));
@@ -241,7 +239,7 @@ export const RemoveUserInDepartment = async (
 ) => {
   dispatch(removeUserStart());
   try {
-    const res = await axiosJWT.put("/v1/department/takeUser/" + id, {
+    const res = await axiosJWT.put(`${baseURL}/v1/department/takeUser/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(removeUserSuccess(res.data));
@@ -252,7 +250,7 @@ export const RemoveUserInDepartment = async (
 export const getAllDepartment = async (accessToken, dispatch, axiosJWT) => {
   dispatch(getAllDepartmentStart());
   try {
-    const res = await axiosJWT.get("/v1/department/", {
+    const res = await axiosJWT.get(`${baseURL}/v1/department/`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getAllDepartmentSuccess(res.data));
@@ -269,7 +267,7 @@ export const updateDepartment = async (
 ) => {
   dispatch(updateDepartmentStart());
   try {
-    await axiosJWT.put("/v1/department/" + id, newData, {
+    await axiosJWT.put(`${baseURL}/v1/department/${id}`, newData, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(updateDepartmentSuccess());
@@ -280,7 +278,7 @@ export const updateDepartment = async (
 export const removeDepartment = async (id, dispatch, accessToken, axiosJWT) => {
   dispatch(removeDepartmentStart());
   try {
-    await axiosJWT.delete("/v1/department/" + id, {
+    await axiosJWT.delete(`${baseURL}/v1/department/${id}`, {
       headers: { token: `Bearer${accessToken}` },
     });
     dispatch(removeDepartmentSuccess());
@@ -292,7 +290,7 @@ export const removeDepartment = async (id, dispatch, accessToken, axiosJWT) => {
 export const getAllProjects = async (accessToken, dispatch, axiosJWT) => {
   dispatch(getAllProjectStart());
   try {
-    const res = await axiosJWT.get("/v1/project/", {
+    const res = await axiosJWT.get(`${baseURL}/v1/project/`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getAllProjectSuccess(res.data));
@@ -309,7 +307,7 @@ export const createProject = async (
 ) => {
   dispatch(createProjectStart());
   try {
-    await axiosJWT.post("/v1/project/create", newProject, {
+    await axiosJWT.post(`${baseURL}/v1/project/create`, newProject, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(createProjectSuccess());
@@ -321,7 +319,7 @@ export const createProject = async (
 export const getProject = async (accessToken, id, dispatch, axiosJWT) => {
   dispatch(getProjectStart());
   try {
-    const res = await axiosJWT.get("/v1/project/" + id, {
+    const res = await axiosJWT.get(`${baseURL}/v1/project/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getProjectSuccess(res.data));
@@ -339,7 +337,7 @@ export const updateProject = async (
 ) => {
   dispatch(updateProjectStart());
   try {
-    const res = await axiosJWT.put("/v1/project/" + id, user, {
+    const res = await axiosJWT.put(`${baseURL}/v1/project/${id}`, user, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(updateProjectSuccess(res.data));
@@ -351,7 +349,7 @@ export const updateProject = async (
 export const deleteProject = async (id, dispatch, accessToken, axiosJWT) => {
   dispatch(deleteProjectStart());
   try {
-    await axiosJWT.delete("/v1/project/delete/" + id, {
+    await axiosJWT.delete(`${baseURL}/v1/project/delete/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(deleteProjectSuccess());
@@ -369,9 +367,12 @@ export const searchProject = async (
 ) => {
   dispatch(searchProjectStart());
   try {
-    const res = await axiosJWT.get("/v1/project/search/" + searchValue, {
-      headers: { token: `Bearer ${accessToken}` },
-    });
+    const res = await axiosJWT.get(
+      `${baseURL}/v1/project/search/${searchValue}`,
+      {
+        headers: { token: `Bearer ${accessToken}` },
+      }
+    );
     dispatch(searchProjectSuccess(res.data));
     navigate("/search");
   } catch (error) {
@@ -389,7 +390,7 @@ export const addStaff = async (
 ) => {
   dispatch(addStaffStart());
   try {
-    await axiosJWT.put("/v1/project/make/" + idProject, idStaff, {
+    await axiosJWT.put(`${baseURL}/v1/project/make/${idProject}`, idStaff, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(addStaffSuccess());
@@ -403,7 +404,7 @@ export const addStaff = async (
 export const createTask = async (newTasks, dispatch, accessToken, axiosJWT) => {
   dispatch(createTasksStart());
   try {
-    await axiosJWT.post("/v1/task/create", newTasks, {
+    await axiosJWT.post(`${baseURL}/v1/task/create`, newTasks, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(createTasksSuccess());
@@ -415,7 +416,7 @@ export const createTask = async (newTasks, dispatch, accessToken, axiosJWT) => {
 export const getAllTasks = async (dispatch, accessToken, axiosJWT) => {
   dispatch(getAllTasksStart());
   try {
-    const res = await axiosJWT.get("/v1/task/alltask", {
+    const res = await axiosJWT.get(`${baseURL}/v1/task/alltask`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getAllTasksSuccess(res.data));
@@ -427,7 +428,7 @@ export const getAllTasks = async (dispatch, accessToken, axiosJWT) => {
 export const deleteTask = async (id, dispatch, accessToken, axiosJWT) => {
   dispatch(deleteTasksStart());
   try {
-    await axiosJWT.delete("/v1/task/delete/" + id, {
+    await axiosJWT.delete(`${baseURL}/v1/task/delete/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(deleteTasksSuccess());
@@ -445,7 +446,7 @@ export const updateTask = async (
 ) => {
   dispatch(updateTasksStart());
   try {
-    const res = await axiosJWT.put("/v1/task/update/" + id, newTask, {
+    const res = await axiosJWT.put(`${baseURL}/v1/task/update/${id}`, newTask, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(updateTasksSuccess(res.data));
@@ -457,7 +458,7 @@ export const updateTask = async (
 export const getTask = async (id, dispatch, accessToken, axiosJWT) => {
   dispatch(getTaskStart());
   try {
-    const res = await axiosJWT.get("/v1/task/" + id, {
+    const res = await axiosJWT.get(`${baseURL}/v1/task/${id}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(getTaskSuccess(res.data));
@@ -475,7 +476,7 @@ export const updateStatusTask = async (
 ) => {
   dispatch(updateStatusTasksStart());
   try {
-    await axiosJWT.put("/v1/task/" + id, newStatusTask, {
+    await axiosJWT.put(`${baseURL}/v1/task/${id}`, newStatusTask, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(updateStatusTasksSuccess());
@@ -494,7 +495,7 @@ export const searchTasks = async (
 ) => {
   dispatch(searchTaskStart());
   try {
-    const res = await axiosJWT.get("/v1/task/search/" + searchValue, {
+    const res = await axiosJWT.get(`${baseURL}/v1/task/search/${searchValue}`, {
       headers: { token: `Bearer ${accessToken}` },
     });
     dispatch(searchTaskSuccess(res.data));
