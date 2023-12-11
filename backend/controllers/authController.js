@@ -78,9 +78,10 @@ const authController = {
         const refreshToken = authController.createRefreshToken(user);
         res.cookie("refreshToken", refreshToken, {
           httpOnly: true,
-          secure: false,
+          secure: true,
           path: "/",
           sameSite: "none",
+          domain: "qlda-api.onrender.com",
         });
         const { password, ...others } = user._doc;
         const returnedUser = {
@@ -110,9 +111,10 @@ const authController = {
         const newRefreshToken = authController.createRefreshToken(user);
         res.cookie("refreshToken", newRefreshToken, {
           httpOnly: true,
-          secure: false,
+          secure: true,
           path: "/",
           sameSite: "strict",
+          domain: "qlda-api.onrender.com",
         });
         return res
           .status(200)
