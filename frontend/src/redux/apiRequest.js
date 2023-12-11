@@ -1,6 +1,5 @@
 import axios from "axios";
-import { baseURL } from "../../utils/apiLink";
-
+import { baseURL } from "../utils/apiLink";
 import {
   loginFailed,
   loginStart,
