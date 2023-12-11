@@ -76,7 +76,7 @@ const authController = {
       if (user && valiPass) {
         const accessToken = authController.createAccessToken(user);
         const refreshToken = authController.createRefreshToken(user);
-        res.cookie("refreshToken", refreshToken, {
+        res.cookies("refreshToken", refreshToken, {
           httpOnly: true,
           secure: false,
           path: "/",
