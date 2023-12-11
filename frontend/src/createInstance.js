@@ -1,9 +1,9 @@
 import axios from "axios";
 import jwt from "jwt-decode";
-
+import { baseURL } from "../utils/apiLink";
 const refreshToken = async () => {
   try {
-    const res = await axios.post("/v1/auth/refresh", {
+    const res = await axios.post(`${baseURL}/v1/auth/refresh`, {
       withCredentials: true,
     });
     return res.data;
