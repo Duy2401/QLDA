@@ -76,7 +76,7 @@ const authController = {
       if (user && valiPass) {
         const accessToken = authController.createAccessToken(user);
         const refreshToken = authController.createRefreshToken(user);
-        res.cookies("refreshToken", refreshToken, {
+        res.cookie("refreshToken", refreshToken, {
           httpOnly: true,
           secure: false,
           path: "/",
@@ -108,13 +108,15 @@ const authController = {
         // Create new Access and Refresh Token
         const newAccessToken = authController.createAccessToken(user);
         const newRefreshToken = authController.createRefreshToken(user);
-        res.cookie("refreshToken", newRefreshToken, {
+        res.cookie("refreshToken", refreshToken, {
           httpOnly: true,
           secure: false,
           path: "/",
           sameSite: "strict",
         });
-        return res.status(200).json({ accessToken: newAccessToken });
+        return res
+          .status(200)
+          .json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
       }
     );
   },
