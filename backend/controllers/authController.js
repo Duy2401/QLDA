@@ -78,9 +78,10 @@ const authController = {
         const refreshToken = authController.createRefreshToken(user);
         res.cookie("refreshToken", refreshToken, {
           httpOnly: true,
-          secure: "auto",
+          secure: false,
           path: "/",
           sameSite: "none",
+          domain: "https://qlda-ten.vercel.app/",
         });
         const { password, ...others } = user._doc;
         const returnedUser = {
@@ -110,9 +111,10 @@ const authController = {
         const newRefreshToken = authController.createRefreshToken(user);
         res.cookie("refreshToken", newRefreshToken, {
           httpOnly: true,
-          secure: "auto",
+          secure: false,
           path: "/",
           sameSite: "strict",
+          domain: "https://qlda-ten.vercel.app/",
         });
         return res
           .status(200)
