@@ -4,5 +4,5 @@
 /node_modules
 /.pnp
 .pnp.js
-/backend/node_modules
+/App_QLCV_Version1/backend/node_modules
 .env
