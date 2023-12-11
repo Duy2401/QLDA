@@ -81,7 +81,6 @@ const authController = {
           secure: true,
           path: "/",
           sameSite: "none",
-          domain: "qlda-api.onrender.com",
         });
         const { password, ...others } = user._doc;
         const returnedUser = {
@@ -114,7 +113,6 @@ const authController = {
           secure: true,
           path: "/",
           sameSite: "strict",
-          domain: "qlda-api.onrender.com",
         });
         return res
           .status(200)
