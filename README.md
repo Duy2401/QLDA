@@ -1,4 +1,3 @@
-![Screenshot 2023-11-12 121534](https://github.com/Duy2401/QLDA/assets/88131939/582bd31c-346c-4e43-ab28-77e8a2a1384e)Ứng dụng có 4 tác nhân sử dụng là admin, user, manage Department, manage Project
 1. Admin có các chức năng sau: **username: admintest1, password: admintest1**
    - Tạo tài khoản cho 3 tác nhân còn lại đăng nhập vào hệ thống
    - Tạo các phòng ban cho hệ thống.
